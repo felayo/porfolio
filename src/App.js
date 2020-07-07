@@ -1,26 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Switch, Route} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './components/navbar';
+import Home from './components/home';
+import About from './components/about';
+import Contact from './components/contact';
+import Footer from './components/footer';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    title: 'Sanctum vitae et Programming',
+    headerLinks: [
+      {
+        title: 'Home', path: '/'
+      },
+      {
+        title: 'About', path: '/about'
+      },
+      {
+        title: 'Contact', path: '/contact'
+      }
+    ],
+    home: {
+      title: 'Be Relentless',
+      subTitle: 'Projects that make a difference',
+      text: 'checkout my project below'
+    },
+    About: {
+      title: 'About Me',
+    },
+    Contact: {
+      title: 'Lets talk',
+    }
+  }
+  render() {
+    const { title } = this.state;
+    return(
+      <React.Fragment>
+        <Navbar />
+        <Switch>
+          <Route exact path='/' component={Home} render={() => <Home title={title}/>} />
+          <Route path='/about' component={About}/>
+          <Route path='/contact' component={Contact} />
+        </Switch>
+        <Footer/>
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
