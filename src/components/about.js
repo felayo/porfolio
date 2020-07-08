@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Hero from '../components/hero'
 
 const About = () => {
 
     return(
         <div>
-            About
+            <Hero title="About Me"/>
         </div>
     );
 }

@@ -40,7 +40,7 @@ class App extends React.Component {
       <React.Fragment>
         <Navbar />
         <Switch>
-          <Route exact path='/' component={Home} render={() => <Home title={title}/>} />
+          <Route exact path='/' component={Home} />
           <Route path='/about' component={About}/>
           <Route path='/contact' component={Contact} />
         </Switch>

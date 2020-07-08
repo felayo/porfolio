@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Hero from '../components/hero'
 
-const Home = () => {
+const Home = (props) => {
     return(
         <div>
-            <h1>Home</h1>
+            <Hero title="Be relentless" subTitle="Projects that make a difference" text="checkout my project below" />
         </div>
     );
 }
